@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { DrawerNavigator } from 'react-navigation';
+import { DrawerNavigator, StackNavigator } from 'react-navigation';
 
 import Homescreen from './screen/homescreen';
 import Addscreen from './screen/addscreen';
@@ -9,7 +9,7 @@ import Editscreen from './screen/editscreen';
 class App extends Component {
   render() {
     return (
-      <AppDrawerNavigator />
+        <AppDrawerNavigator />
     );
   }
 } 
@@ -20,6 +20,10 @@ const AppDrawerNavigator = DrawerNavigator({
   Editscreen: { screen: Editscreen }
 },{
   initialRouteName: 'Homescreen'
+}) 
+ 
+const AppStackNavigator = StackNavigator({
+  Editscreen: { screen: Editscreen }
 })
 
 

@@ -18,16 +18,18 @@ import {
 //import Allanime from '../common/allanime';
 import Addscreen from './addscreen';
 import Editscreen from './editscreen';
+//import GetAnime from '../common/getanime';
 
 
 class Homescreen extends Component{
      
     constructor(props) {
         super(props);
-
+        
         this.state = { 
             animelist: []
         };
+
     }
 
     componentDidMount = () => {
@@ -41,15 +43,11 @@ class Homescreen extends Component{
                 return error;  
             });
     }
-    
-    onPress(){
-
-    }
 
 
-    render(){  
-        return(
-            <Container> 
+    render(){ 
+        return( 
+            <Container>  
                 <Header style={{ paddingTop: 25, paddingBottom: 10 }}>
                     <Button transparent onPress={
                         () => this.props.navigation.navigate('DrawerOpen')
@@ -69,12 +67,11 @@ class Homescreen extends Component{
                                         anime.anime_name, 
                                         anime.description,
                                         [
-                                            {text: 'Edite', onPress: () => this.props.navigation.navigate('Editscreen', { animeId: anime.id })}, 
+                                            {text: 'Edite', onPress: () => this.props.navigation.navigate('Editscreen', { animeId: anime.id, animeTitle: anime.anime_name, animeDescription: anime.description })}, 
                                             {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
                                         ]
                                     ) } 
                                 } key={anime.id} style={{ padding: 0, width: '100%' }}><Text>{ anime.anime_name }</Text></ListItem>
-                                //anime => <Allanime key={anime.id} animename={anime.anime_name} />
                             ) 
                         } 
                     </List> 
