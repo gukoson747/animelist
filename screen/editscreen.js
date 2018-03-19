@@ -53,31 +53,35 @@ class Editscreen extends Component {
     }
     
  
-    render() { 
+    render() {
         return ( 
-            <Container>   
+            <Container>
                 <Header style={{ paddingTop: 25, paddingBottom: 10 }}>
                     <Body>
                         <Text style={{ color: '#ffffff' }}>Edit</Text>
                     </Body>
-                </Header>  
-                <Content> 
-                    <Form> 
+                </Header>
+                <Content>
+                    <Form>
                         <List style={{ backgroundColor: '#ffffff' }}>
                             <Item style={{ width: '100%', margin: 0, padding: 0 }}>
                                 <Input value={this.state.animeName} onChangeText={(animeName) => this.setState({animeName})} />
                             </Item>
                             <Item style={{ width: '100%', margin: 0, padding: 0 }}>
-                                <Textarea onChangeText={(animeDescription) => this.setState({animeDescription})} value={this.state.animeDescription} style={{ height: 500 }} />
+                                <Textarea 
+                                    onChangeText={(animeDescription) => this.setState({animeDescription})} 
+                                    value={this.state.animeDescription} 
+                                    style={{ height: 200 }}
+                                />
                             </Item>
                             
                             <Button full style={{ width: '100%', marginTop: 10 }} onPress={this.save}><Text style={{ color: '#ffffff', textAlign: 'center' }}>Save Anime</Text></Button>
-                        </List> 
+                        </List>
                     </Form>
                 </Content>
             </Container>
         ); 
-    } 
+    }
 }
 
 export default Editscreen;

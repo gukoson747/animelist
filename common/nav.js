@@ -1,18 +1,32 @@
 import React,{ Component } from 'react';
-import {StackNavigator} from 'react-navigation';
+import { StyleSheet, Text, View, AppRegistry } from 'react-native';
+import { DrawerNavigator, StackNavigator } from 'react-navigation';
 
+import Homescreen from '../screen/homescreen';
+import Addscreen from '../screen/addscreen';
 import Editscreen from '../screen/editscreen';
 
-class Nav extends Component{
-    render(){ 
-        return(
-        <Navigator />
-        );
-    };
-}
+export const AppDrawerNavigator = DrawerNavigator({
+    Homescreen: { screen: Homescreen },
+    Addscreen: { screen: Addscreen },
+  },{
+    initialRouteName: 'Homescreen'  
+  }
+) 
 
-const Navigator = StackNavigator({
-    Edit: { screen: Editscreen },
+export const AppStackNavigator = StackNavigator({
+    Menu: { 
+        screen: AppDrawerNavigator,
+        navigationOptions: {
+            header: null
+        } 
+    },
+    Editscreen: { 
+        screen: Editscreen,
+        navigationOptions: {
+            header: null
+        } 
+    }
+},{ 
+    initialRouteName: 'Menu'
 })
-
-export default Nav;
